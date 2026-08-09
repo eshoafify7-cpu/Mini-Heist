@@ -1,5 +1,4 @@
 using Delivery.Managers;
-using UnityEngine;
 
 namespace Delivery.Player.States {
     public class PlayerTricycleState : PlayerBaseState {

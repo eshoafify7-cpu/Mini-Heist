@@ -1,5 +1,4 @@
 using System;
-using System.Net.Sockets;
 using Delivery.Interfaces;
 using UnityEngine;
 
@@ -19,10 +18,22 @@ namespace Delivery.Interactable {
 
         private const float SMOOTH_TIME = 10f;
 
+        public float deliveryDelayTimer;
+        public float deliveryDelayTimerMax = 1f;
+
+        public bool isDelivering;
+
+        private PackagePad packagePad;
+
+        private const string ADDRESS_PADS_LAYER = "Address Pad";
+
         private void Awake() {
             rb = GetComponent<Rigidbody>();
+            packagePad = FindObjectOfType<PackagePad>();
 
             tagComponent = GetComponent<TagComponent>();
+
+            deliveryDelayTimer = deliveryDelayTimerMax;
         }
 
         public void Interact(Transform newParent) {
@@ -38,7 +49,51 @@ namespace Delivery.Interactable {
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, newParent.rotation, SMOOTH_TIME * Time.deltaTime);
             }
+
+            if (isDelivering) {
+                deliveryDelayTimer -= Time.deltaTime;
+
+                if (deliveryDelayTimer <= 0f) {
+                    deliveryDelayTimer = 0f;
+
+                    if (transform.parent == null) {
+
+                        Destroy(gameObject);
+                        packagePad.DecreasePackageCount();
+                    }
+                }
+            }
         }
 
+        private void OnCollisionEnter(Collision other) {
+            if (!GetComponent<TagComponent>())
+                return;
+
+            if (!other.gameObject.TryGetComponent(out TagComponent addressTag))
+                return;
+
+            if (other.gameObject.layer != LayerMask.NameToLayer(ADDRESS_PADS_LAYER))
+                return;
+                
+            if (tagComponent.ObjectsTag != addressTag.ObjectsTag)
+                return;
+
+            isDelivering = true;
+            deliveryDelayTimer = deliveryDelayTimerMax;
+        }
+
+        private void OnCollisionExit(Collision other) {
+            if (!GetComponent<TagComponent>())
+                return;
+
+            if (!other.gameObject.TryGetComponent(out TagComponent addressTag))
+                return;
+
+            if (tagComponent.ObjectsTag != addressTag.ObjectsTag)
+                return;
+
+            isDelivering = false;
+            
+        }
     }
 }

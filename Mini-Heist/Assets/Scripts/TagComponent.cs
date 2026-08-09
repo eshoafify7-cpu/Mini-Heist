@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 namespace Delivery { 
     public class TagComponent : MonoBehaviour {
 

@@ -42,10 +42,6 @@ namespace Delivery.Player {
                     
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
 
-                    Debug.Log("Hit: " + hit.collider.gameObject.name);
-                    Debug.Log("Interactable: " + interactable);
-                    Debug.Log("Tag: " + interactable?.tagComponent);
-
                     if (interactable != null && !interactable.tagComponent.CompareTag(TagComponent.Tag.Tricycle)) {
                         
                         heldObject = interactable;
