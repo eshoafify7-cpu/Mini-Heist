@@ -35,11 +35,11 @@ namespace Delivery.Player {
             }
 
             if (InputManager.Instance.WasInteractPressed()) {
-                if (heldObject != null) {
-                    heldObject.Interact(null);
-                    heldObject = null;
-                } 
-                else if (canInteract) {
+                
+                heldObject?.Interact(null);
+                heldObject = null;
+                
+                if (canInteract) {
                     
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
 
@@ -56,7 +56,8 @@ namespace Delivery.Player {
                 
             }
 
-            Debug.DrawRay(cameraTransform.position, cameraTransform.forward * interactRange, Color.green);
+            Debug.Log(heldObject);
+
         }
 
     }
