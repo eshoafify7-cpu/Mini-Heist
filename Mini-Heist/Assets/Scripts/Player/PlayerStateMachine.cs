@@ -1,7 +1,5 @@
 ﻿using Delivery.Managers;
-using System.Collections;
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 namespace Delivery.Player.States {
     [RequireComponent(typeof(PlayerData))]
@@ -15,6 +13,7 @@ namespace Delivery.Player.States {
 
         public PlayerBaseState playerIdleState;
         public PlayerBaseState playerMoveState;
+        public PlayerBaseState playerTricycleState;
 
         private void Awake() {
             Instance = this;
@@ -23,6 +22,7 @@ namespace Delivery.Player.States {
 
             playerIdleState = new PlayerIdleState();
             playerMoveState = new PlayerMoveState();
+            playerTricycleState = new PlayerTricycleState();
 
             ChangeState(playerIdleState);
         }
@@ -34,7 +34,7 @@ namespace Delivery.Player.States {
                 InputManager.Instance.GetMoveInputNormalized();
 
             float targetTime = 
-                player.moveInput != Vector2.zero ? player.accelerationTime : player.decelrationTime;
+                player.moveInput != Vector2.zero ? player.AccelerationTime : player.DecelrationTime;
 
             player.currentInput = 
                 Vector2.SmoothDamp(player.currentInput, player.moveInput, ref player.smoothedVelocity, targetTime);

@@ -16,7 +16,7 @@ namespace Delivery.Player {
         private void Update() {
             addressText.gameObject.SetActive(player.HeldObject != null);
 
-            if (player.HeldObject != null)
+            if (player.HeldObject != null && !player.HeldObject.tagComponent.CompareTag(TagComponent.Tag.Tricycle))
                 addressText.text = player.HeldObject.tagComponent.ObjectsTag.ToString();
         }
 

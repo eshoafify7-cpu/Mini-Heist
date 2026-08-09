@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Delivery {
@@ -10,19 +11,25 @@ namespace Delivery {
         }
 
         private void OnCollisionEnter(Collision other) {
-            if (TryGetComponent(out TagComponent boxTag)) {
-                
-                if (other.gameObject.TryGetComponent(out TagComponent addressTag)) {
-                    
-                    if (boxTag.ObjectsTag == addressTag.ObjectsTag) {
-                        float deliveryDelay = 1f;
-                        
-                        Destroy(other.gameObject, deliveryDelay);
+            if (!TryGetComponent(out TagComponent boxTag))
+                return;
 
-                        packagePad.DecreasePackageCount();
-                    } 
-                }
+            if (!other.gameObject.TryGetComponent(out TagComponent addressTag))
+                return;
 
+            if (boxTag.ObjectsTag != addressTag.ObjectsTag)
+                return;
+
+            StartCoroutine(DeliverBox(other.gameObject));
+        }
+
+        private IEnumerator DeliverBox(GameObject box) {
+
+            yield return new WaitForSeconds(1f);
+
+            if (box != null && box.transform.parent == null) {
+                Destroy(box);
+                packagePad.DecreasePackageCount();
             }
         }
 

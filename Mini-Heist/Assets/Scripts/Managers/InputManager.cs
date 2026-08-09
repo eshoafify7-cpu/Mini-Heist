@@ -11,11 +11,27 @@ namespace Delivery.Managers {
             Instance = this;
 
             playerInputActions = new PlayerInputActions();
-            playerInputActions.Player.Enable();
+            EnablePlayerInputActions();
         }
 
         private void OnDisable() {
+            DisablePlayerInputActions();
+        }
+
+        public void EnablePlayerInputActions() {
+            playerInputActions.Player.Enable();
+        }
+
+        public void DisablePlayerInputActions() {
             playerInputActions.Player.Disable();
+        }
+
+        public void EnableTricycleInputActions() {
+            playerInputActions.Tricycle.Enable();
+        }
+
+        public void DisableTricycleInputActions() {
+            playerInputActions.Tricycle.Disable();
         }
 
         public Vector2 GetMoveInputNormalized() {

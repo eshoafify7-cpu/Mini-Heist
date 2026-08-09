@@ -1,4 +1,3 @@
-using System.Security.Principal;
 using Delivery.Interfaces;
 using Delivery.Managers;
 using UnityEngine;
@@ -43,20 +42,22 @@ namespace Delivery.Player {
                     
                     IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
 
-                    if (interactable != null) {
+                    Debug.Log("Hit: " + hit.collider.gameObject.name);
+                    Debug.Log("Interactable: " + interactable);
+                    Debug.Log("Tag: " + interactable?.tagComponent);
+
+                    if (interactable != null && !interactable.tagComponent.CompareTag(TagComponent.Tag.Tricycle)) {
+                        
                         heldObject = interactable;
                         interactable.Interact(handPos);
-                    }
 
-                    if (interactable != null && interactable.tagComponent.  CompareTag(TagComponent.Tag.Tricycle)) {
-                    
-                        interactable.Interact(null);                
+                    } else {
+                        
+                            interactable.Interact(null);   
                     }
                 }
                 
             }
-
-            Debug.Log(heldObject);
 
         }
 
