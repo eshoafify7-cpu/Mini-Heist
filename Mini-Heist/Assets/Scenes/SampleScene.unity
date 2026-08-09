@@ -2785,11 +2785,12 @@ GameObject:
   - component: {fileID: 1950229622}
   - component: {fileID: 1950229621}
   - component: {fileID: 1950229623}
-  - component: {fileID: 1950229624}
   - component: {fileID: 1950229625}
   - component: {fileID: 1950229626}
   - component: {fileID: 1950229627}
   - component: {fileID: 1950229628}
+  - component: {fileID: 1950229629}
+  - component: {fileID: 1950229624}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2853,12 +2854,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1950229620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7270ba4942a7747b70d7b8482e1020, type: 3}
+  m_Script: {fileID: 11500000, guid: 150ec5be331f60a45b6878320544b390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
-  accelerationTime: 0.1
-  decelerationTime: 0.1
 --- !u!114 &1950229625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2919,6 +2917,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addressText: {fileID: 1623548479}
+--- !u!114 &1950229629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950229620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482e730aa2b596242912356e1f084b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <moveSpeed>k__BackingField: 12
+  <accelerationTime>k__BackingField: 0.1
+  <decelrationTime>k__BackingField: 0.1
+  moveInput: {x: 0, y: 0}
+  rb: {fileID: 0}
 --- !u!1 &1997991066
 GameObject:
   m_ObjectHideFlags: 0
