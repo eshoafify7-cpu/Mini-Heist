@@ -12,11 +12,7 @@ namespace Delivery.Player {
         
         [field:Space]
 
-        [field: SerializeField] public Transform VirtualCamera { get; private set; }
-        [field: SerializeField] public GameObject PlayerVisual { get; private set; }
-
-        [field: SerializeField] public Transform HandPos { get; private set; }
-        [field: SerializeField] public Transform CameraHolder { get; private set; }
+        [field: SerializeField] public GameObject[] playerChildren;
 
         [HideInInspector] public Vector2 moveInput;
         [HideInInspector] public Rigidbody rb;

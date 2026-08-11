@@ -4,16 +4,9 @@ namespace Delivery.Player.States {
     public class PlayerIdleState : PlayerBaseState {
 
         public override void Enter(PlayerData player) {
-            if (player.CameraHolder != null && player.CameraHolder.parent == null) {
-                
-                player.CameraHolder.parent = player.transform;
+            foreach (GameObject child in player.playerChildren) {
+                child.SetActive(true);
             }
-
-            if (!player.PlayerVisual.activeInHierarchy)
-                player.PlayerVisual.SetActive(true);
-
-            if (!player.HandPos.parent == player.CameraHolder) 
-                player.HandPos.parent = player.CameraHolder;
         }
 
         public override void Update(PlayerData player) {

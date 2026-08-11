@@ -10,10 +10,11 @@ namespace Delivery.Player.States {
         private PlayerData player;
 
         private PlayerBaseState currentState;
+        public PlayerBaseState CurrentState => currentState;
 
         public PlayerBaseState playerIdleState;
         public PlayerBaseState playerMoveState;
-        public PlayerBaseState playerTricycleState;
+        public PlayerBaseState playerCarState;
 
         private void Awake() {
             Instance = this;
@@ -22,7 +23,7 @@ namespace Delivery.Player.States {
 
             playerIdleState = new PlayerIdleState();
             playerMoveState = new PlayerMoveState();
-            playerTricycleState = new PlayerTricycleState();
+            playerCarState = new PlayerCarState();
 
             ChangeState(playerIdleState);
         }
