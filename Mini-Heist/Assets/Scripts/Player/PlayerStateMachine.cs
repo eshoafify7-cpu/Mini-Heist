@@ -1,4 +1,5 @@
-﻿using Delivery.Managers;
+﻿using System;
+using Delivery.Managers;
 using UnityEngine;
 
 namespace Delivery.Player.States {
@@ -15,6 +16,8 @@ namespace Delivery.Player.States {
         public PlayerBaseState playerIdleState;
         public PlayerBaseState playerMoveState;
         public PlayerBaseState playerCarState;
+
+        public event Action<PlayerBaseState> OnPlayerChangeState; 
 
         private void Awake() {
             Instance = this;
@@ -56,6 +59,8 @@ namespace Delivery.Player.States {
             currentState?.Exit(player);
             currentState = newState;
             currentState.Enter(player);
+
+            OnPlayerChangeState?.Invoke(currentState);
         }
 
     }

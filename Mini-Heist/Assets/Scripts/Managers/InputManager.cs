@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Delivery.Managers {
     public class InputManager : MonoBehaviour {
@@ -6,6 +8,8 @@ namespace Delivery.Managers {
         public static InputManager Instance { get; private set; }
 
         private PlayerInputActions playerInputActions;
+
+        public event EventHandler OnPlayerLeaveCar;
 
         private void Awake() {
             Instance = this;
@@ -27,11 +31,19 @@ namespace Delivery.Managers {
         }
 
         public void EnableTricycleInputActions() {
-            playerInputActions.Tricycle.Enable();
+            playerInputActions.Car.Enable();
         }
 
         public void DisableTricycleInputActions() {
-            playerInputActions.Tricycle.Disable();
+            playerInputActions.Car.Disable();
+        }
+
+        private void Start() {
+            playerInputActions.Car.Leave.performed += Car_OnPlayerLeave;
+        } 
+
+        private void Car_OnPlayerLeave(InputAction.CallbackContext e) {
+            OnPlayerLeaveCar?.Invoke(this, EventArgs.Empty);
         }
 
         public Vector2 GetMoveInputNormalized() {
@@ -54,6 +66,26 @@ namespace Delivery.Managers {
 
         public bool WasInteractPressed() {
             return playerInputActions.Player.Interact.WasPressedThisFrame();
+        }
+
+        public Vector2 GetThrottleReverse() {
+            Vector2 throttle;
+
+            throttle = playerInputActions.Car.ThrottleReverse.ReadValue<Vector2>();
+
+            throttle = throttle.normalized;
+
+            return throttle;
+        }
+
+        public Vector2 GetSteeringNormalized() {
+            Vector2 steering;
+
+            steering = playerInputActions.Car.Steering.ReadValue<Vector2>();
+
+            steering = steering.normalized;
+
+            return steering;
         }
 
     }

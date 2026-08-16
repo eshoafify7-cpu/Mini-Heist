@@ -1,3 +1,4 @@
+using Cinemachine;
 using Delivery.Managers;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Delivery.Player {
         [Space]
 
         [SerializeField] private Transform cameraHolder;
+        [SerializeField] private CinemachineBrain brain;
 
         private float xRotation;
         private const float MAX_Y_ROT = 90f;
@@ -22,6 +24,9 @@ namespace Delivery.Player {
         }
 
         private void Update() {
+            if (brain.IsBlending)
+                return;
+                
             Vector2 mouseDelta = InputManager.Instance.GetMouseDelta();
 
             float mouseX = mouseDelta.x * sensitivity;

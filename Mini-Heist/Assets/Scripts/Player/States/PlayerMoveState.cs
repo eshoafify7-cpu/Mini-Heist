@@ -3,12 +3,6 @@ using UnityEngine;
 namespace Delivery.Player.States {
     public class PlayerMoveState : PlayerBaseState {
 
-        public override void Enter(PlayerData player) {
-            foreach (GameObject child in player.playerChildren) {
-                child.SetActive(true);
-            }
-        }
-
         public override void Update(PlayerData player) {
             if (player.currentInput.magnitude == 0.001f) {
                 playerSM.ChangeState(playerSM.playerIdleState);

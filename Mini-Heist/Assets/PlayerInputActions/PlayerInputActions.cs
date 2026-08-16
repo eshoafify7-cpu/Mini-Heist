@@ -136,136 +136,114 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Tricycle"",
+            ""name"": ""Car"",
             ""id"": ""f8a853fd-34f2-4ee4-8c85-6c437b5a1cf8"",
             ""actions"": [
                 {
-                    ""name"": ""Throtle"",
-                    ""type"": ""Button"",
-                    ""id"": ""48639f31-7efd-4d40-b752-06c9e0140eac"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Brakes"",
-                    ""type"": ""Button"",
-                    ""id"": ""7a44e715-a685-4c83-939a-58683cd1ef1a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Movement"",
+                    ""name"": ""ThrottleReverse"",
                     ""type"": ""Value"",
-                    ""id"": ""d69fe469-b14d-46ee-9ee5-477ec41849fe"",
+                    ""id"": ""d5a14481-18e3-42a4-a91b-3e8620fcc078"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Steering"",
+                    ""type"": ""Value"",
+                    ""id"": ""0862f908-0bd9-4b78-8785-dc4ae6056a80"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""e84b4e31-6916-4cfe-8ff8-808ce09874d1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""587bf48b-4d2e-4f2e-8d59-0dcd326c2688"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throtle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c83d01da-8c27-45e2-89f2-9ce27c2f4f4f"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Throtle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""87af58d0-d81a-46d7-9fdc-c27a5ee2f239"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Brakes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7512d1c1-4b95-4da9-b06e-7dd3346cbf70"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Brakes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""AD"",
-                    ""id"": ""47fd8ea2-08e1-446e-9d03-faaf58749b8d"",
+                    ""name"": ""WS"",
+                    ""id"": ""44c2ce0f-34d2-49bd-8626-bed0e8d9ad1c"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""ThrottleReverse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""00bd35fd-fff9-463d-a6d3-f40e2345a018"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrottleReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b81b40d7-7510-4a9b-ba4e-10db3fd03a10"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrottleReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AD"",
+                    ""id"": ""04c960b2-7d25-4fc5-99d7-442fe6a33f12"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""fa65ccf9-e353-48b3-850a-15959720b843"",
+                    ""id"": ""8b63ffb7-fb21-4ada-b4e5-9cc85e79d12b"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""8ad6448b-a4e5-4aa6-baf8-59968dbcb15e"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steering"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""37ca3e9f-ea3b-4dae-9acf-f59f6f8a6754"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""27f76143-e814-4c24-b510-e43c7a5c8b4e"",
+                    ""id"": ""eaac16b4-0c5b-46a2-a055-ce266a48aa96"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steering"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09200202-082c-4c14-b064-d9c94ef99b16"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -277,11 +255,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        // Tricycle
-        m_Tricycle = asset.FindActionMap("Tricycle", throwIfNotFound: true);
-        m_Tricycle_Throtle = m_Tricycle.FindAction("Throtle", throwIfNotFound: true);
-        m_Tricycle_Brakes = m_Tricycle.FindAction("Brakes", throwIfNotFound: true);
-        m_Tricycle_Movement = m_Tricycle.FindAction("Movement", throwIfNotFound: true);
+        // Car
+        m_Car = asset.FindActionMap("Car", throwIfNotFound: true);
+        m_Car_ThrottleReverse = m_Car.FindAction("ThrottleReverse", throwIfNotFound: true);
+        m_Car_Steering = m_Car.FindAction("Steering", throwIfNotFound: true);
+        m_Car_Leave = m_Car.FindAction("Leave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -402,77 +380,77 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
-    // Tricycle
-    private readonly InputActionMap m_Tricycle;
-    private List<ITricycleActions> m_TricycleActionsCallbackInterfaces = new List<ITricycleActions>();
-    private readonly InputAction m_Tricycle_Throtle;
-    private readonly InputAction m_Tricycle_Brakes;
-    private readonly InputAction m_Tricycle_Movement;
-    public struct TricycleActions
+    // Car
+    private readonly InputActionMap m_Car;
+    private List<ICarActions> m_CarActionsCallbackInterfaces = new List<ICarActions>();
+    private readonly InputAction m_Car_ThrottleReverse;
+    private readonly InputAction m_Car_Steering;
+    private readonly InputAction m_Car_Leave;
+    public struct CarActions
     {
         private @PlayerInputActions m_Wrapper;
-        public TricycleActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Throtle => m_Wrapper.m_Tricycle_Throtle;
-        public InputAction @Brakes => m_Wrapper.m_Tricycle_Brakes;
-        public InputAction @Movement => m_Wrapper.m_Tricycle_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Tricycle; }
+        public CarActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ThrottleReverse => m_Wrapper.m_Car_ThrottleReverse;
+        public InputAction @Steering => m_Wrapper.m_Car_Steering;
+        public InputAction @Leave => m_Wrapper.m_Car_Leave;
+        public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(TricycleActions set) { return set.Get(); }
-        public void AddCallbacks(ITricycleActions instance)
+        public static implicit operator InputActionMap(CarActions set) { return set.Get(); }
+        public void AddCallbacks(ICarActions instance)
         {
-            if (instance == null || m_Wrapper.m_TricycleActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_TricycleActionsCallbackInterfaces.Add(instance);
-            @Throtle.started += instance.OnThrotle;
-            @Throtle.performed += instance.OnThrotle;
-            @Throtle.canceled += instance.OnThrotle;
-            @Brakes.started += instance.OnBrakes;
-            @Brakes.performed += instance.OnBrakes;
-            @Brakes.canceled += instance.OnBrakes;
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
+            if (instance == null || m_Wrapper.m_CarActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CarActionsCallbackInterfaces.Add(instance);
+            @ThrottleReverse.started += instance.OnThrottleReverse;
+            @ThrottleReverse.performed += instance.OnThrottleReverse;
+            @ThrottleReverse.canceled += instance.OnThrottleReverse;
+            @Steering.started += instance.OnSteering;
+            @Steering.performed += instance.OnSteering;
+            @Steering.canceled += instance.OnSteering;
+            @Leave.started += instance.OnLeave;
+            @Leave.performed += instance.OnLeave;
+            @Leave.canceled += instance.OnLeave;
         }
 
-        private void UnregisterCallbacks(ITricycleActions instance)
+        private void UnregisterCallbacks(ICarActions instance)
         {
-            @Throtle.started -= instance.OnThrotle;
-            @Throtle.performed -= instance.OnThrotle;
-            @Throtle.canceled -= instance.OnThrotle;
-            @Brakes.started -= instance.OnBrakes;
-            @Brakes.performed -= instance.OnBrakes;
-            @Brakes.canceled -= instance.OnBrakes;
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
+            @ThrottleReverse.started -= instance.OnThrottleReverse;
+            @ThrottleReverse.performed -= instance.OnThrottleReverse;
+            @ThrottleReverse.canceled -= instance.OnThrottleReverse;
+            @Steering.started -= instance.OnSteering;
+            @Steering.performed -= instance.OnSteering;
+            @Steering.canceled -= instance.OnSteering;
+            @Leave.started -= instance.OnLeave;
+            @Leave.performed -= instance.OnLeave;
+            @Leave.canceled -= instance.OnLeave;
         }
 
-        public void RemoveCallbacks(ITricycleActions instance)
+        public void RemoveCallbacks(ICarActions instance)
         {
-            if (m_Wrapper.m_TricycleActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_CarActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(ITricycleActions instance)
+        public void SetCallbacks(ICarActions instance)
         {
-            foreach (var item in m_Wrapper.m_TricycleActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_CarActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_TricycleActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_CarActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public TricycleActions @Tricycle => new TricycleActions(this);
+    public CarActions @Car => new CarActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
     }
-    public interface ITricycleActions
+    public interface ICarActions
     {
-        void OnThrotle(InputAction.CallbackContext context);
-        void OnBrakes(InputAction.CallbackContext context);
-        void OnMovement(InputAction.CallbackContext context);
+        void OnThrottleReverse(InputAction.CallbackContext context);
+        void OnSteering(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
     }
 }

@@ -13,5 +13,14 @@ namespace Delivery.Player.States {
             }
         }
 
+        public override void Exit(PlayerData player) {
+            InputManager.Instance.EnablePlayerInputActions();
+            InputManager.Instance.DisableTricycleInputActions();
+
+            foreach (GameObject child in player.playerChildren) {
+                child.SetActive(true);
+            }
+        }
+
     }
 }
