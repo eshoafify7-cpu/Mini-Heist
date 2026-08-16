@@ -15,11 +15,11 @@ namespace Delivery.Car {
 
         [Header("Steering")]
         [SerializeField] private float steeringSpeed;
+        [SerializeField] private float minSteeringFactor;
 
         [Space]
         [SerializeField] private GameObject virtualCamera;
         [SerializeField] private Transform playerExitPos;
-        [SerializeField] private float playerOffset;
 
         private Rigidbody rb;
 
@@ -60,10 +60,10 @@ namespace Delivery.Car {
             float steering = InputManager.Instance.GetSteeringNormalized().x;
 
             if (throttle > 0f) {
-                targetSpeed = throttle * maxForwardSpeed;
+                targetSpeed = maxForwardSpeed * throttle;
             } 
             else {
-                targetSpeed = throttle * maxReverseSpeed;    
+                targetSpeed = maxReverseSpeed * throttle;
             }
 
             float targetTime;
@@ -81,15 +81,21 @@ namespace Delivery.Car {
             );
 
             rb.MovePosition(
-                rb.position + Time.fixedDeltaTime * transform.forward * currentSpeed 
+                rb.position + transform.forward * (currentSpeed * Time.fixedDeltaTime) 
             );
 
             float speedFactor = Mathf.Clamp01(
                 Mathf.Abs(currentSpeed) / maxForwardSpeed
             );
 
+            float steeringFactor = Mathf.Lerp(
+                1f,
+                minSteeringFactor,
+                speedFactor
+            );
+
             float steerAmuont = 
-                steering * steeringSpeed * speedFactor;
+                steering * steeringSpeed * steeringFactor;
 
             Quaternion rotation = Quaternion.Euler(
                 0f,

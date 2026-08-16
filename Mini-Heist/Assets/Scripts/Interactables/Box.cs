@@ -13,9 +13,6 @@ namespace Delivery.Interactable {
 
         public TagComponent tagComponent { get; set; }
 
-        public event EventHandler OnDeliverySuccess;
-        public event EventHandler OnDeliveryFailed;
-
         private const float SMOOTH_TIME = 10f;
 
         public float deliveryDelayTimer;

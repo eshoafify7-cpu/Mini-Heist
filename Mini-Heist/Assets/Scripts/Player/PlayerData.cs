@@ -1,7 +1,8 @@
 using UnityEngine;
 
 namespace Delivery.Player {
-    [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Collider))]
     public class PlayerData : MonoBehaviour {
         
         [field: SerializeField] public float MoveSpeed { get; private set; }
@@ -16,13 +17,15 @@ namespace Delivery.Player {
 
         [HideInInspector] public Vector2 moveInput;
         [HideInInspector] public Rigidbody rb;
+        [HideInInspector] public Collider playerCollider;
 
         [HideInInspector] public Vector2 currentInput;
         [HideInInspector] public Vector2 smoothedVelocity;
         [HideInInspector] public Vector3 moveDir;
 
         private void Awake() {
-            rb = GetComponent<Rigidbody>();            
+            rb = GetComponent<Rigidbody>();
+            playerCollider = GetComponent<Collider>();
         }
 
     }

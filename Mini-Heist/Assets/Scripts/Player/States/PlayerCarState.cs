@@ -11,6 +11,8 @@ namespace Delivery.Player.States {
             foreach (GameObject child in player.playerChildren) {
                 child.SetActive(false);
             }
+
+            player.playerCollider.enabled = false;
         }
 
         public override void Exit(PlayerData player) {
@@ -20,6 +22,8 @@ namespace Delivery.Player.States {
             foreach (GameObject child in player.playerChildren) {
                 child.SetActive(true);
             }
+
+            player.playerCollider.enabled = true;
         }
 
     }

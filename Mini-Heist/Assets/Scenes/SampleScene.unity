@@ -1519,6 +1519,7 @@ MonoBehaviour:
   maxForwardSpeed: 80
   maxReverseSpeed: 20
   steeringSpeed: 100
+  minSteeringFactor: 0.5
   virtualCamera: {fileID: 404383475}
   playerExitPos: {fileID: 731390453}
   playerOffset: 0
@@ -3545,6 +3546,7 @@ MonoBehaviour:
   - {fileID: 279866371}
   moveInput: {x: 0, y: 0}
   rb: {fileID: 0}
+  playerCollider: {fileID: 0}
   currentInput: {x: 0, y: 0}
   smoothedVelocity: {x: 0, y: 0}
   moveDir: {x: 0, y: 0, z: 0}
